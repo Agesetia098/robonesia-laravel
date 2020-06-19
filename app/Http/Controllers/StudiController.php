@@ -4,14 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Studi;
 use Illuminate\Http\Request;
+
+use App\Repositories\StudiRepository;
 use App\Http\Requests\StudiStoreRequest;
+use Yajra\DataTables\Facades\DataTables;
 
 class StudiController extends Controller
 {
+    private $studirepository;
+
+    public function __construct(StudiRepository $studiRepository)
+    {
+        $this->studirepository  = $studiRepository;
+    }
     public function index()
     {
-        $studi = Studi::all();
-        return view('studi.index', compact('studi'));
+        if(request()->ajax()){
+            $program = $this->studirepository->index();
+            return DataTables::of($program)->make(true);     
+        }
+        return view('studi.index');
     }
 
     public function create()

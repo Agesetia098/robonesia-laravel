@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('head')
+    <script src="{{ mix('js/nilai/index.js') }}" defer></script>
+@endsection
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-8">
@@ -9,16 +11,16 @@
             <div class="card-body">
                 <a href="{{ route('nilai.create') }}" class="btn btn-outline-primary">Add Nilai</a>
                 <hr>
-                {{-- <table class="table table-bordered">
+                 <table class="table table-bordered" id="data-table">
                     <thead>
                         <tr>
-                            <th>No</th>
+                            {{-- <th>No</th> --}}
                             <th>Nama Mahasiswa</th>
                             <th>Mata Kuliah</th>
                             <th>Nilai</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    {{-- <tbody>
                         @forelse ($nilai as $data)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
@@ -28,8 +30,8 @@
                             <td class="text-center" colspan="3">Tidak Ada Data !</td>
                         </tr>
                         @endforelse
-                    </tbody>
-                </table> --}}
+                    </tbody> --}}
+                </table> 
             </div>
         </div>
     </div>

@@ -12,4 +12,14 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+  .sass('resources/sass/app.scss', 'public/css');
+
+
+//mahasiswa
+mix.js('resources/js/mahasiswa/index.js', 'public/js/mahasiswa');
+
+//Nilai
+mix.js('resources/js/nilai/index.js', 'public/js/nilai');
+
+//Studi
+mix.js('resources/js/studi/index.js', 'public/js/studi');

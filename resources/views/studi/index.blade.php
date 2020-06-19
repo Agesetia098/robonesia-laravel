@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('head')
+<script src="{{ mix('js/studi/index.js') }}" defer></script>
+@endsection
 
 @section('content')
 <div class="row justify-content-center">
@@ -9,7 +12,7 @@
             <div class="card-body">
                 <a href="{{ route('studi.create') }}" class="btn btn-outline-primary">Add Data</a>
                 <hr>
-                <table class="table table-bordered">
+                <table class="table table-bordered" id="data-table">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -17,7 +20,7 @@
                             <th class="text-center">Aksi</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    {{-- <tbody>
                         @forelse ($studi as $data)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
@@ -30,7 +33,7 @@
                             <td class="text-center" colspan="3">Tidak Ada Data !</td>
                         </tr>
                         @endforelse
-                    </tbody>
+                    </tbody> --}}
                 </table>
             </div>
         </div>

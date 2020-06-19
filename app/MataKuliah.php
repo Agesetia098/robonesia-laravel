@@ -11,6 +11,7 @@ class Matakuliah extends Model
 
     public function mahasiswa()
     {
-        return $this->belongsToMany(Mahasiswa::class);
+        return $this->belongsToMany(Mahasiswa::class,'mahasiswas','pelajaran_id','mahasiswa_id')
+        ->withPivot('nilai');
     }
 }

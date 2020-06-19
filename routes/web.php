@@ -20,6 +20,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('admin', function(){
+    return "<h1>Halaman Admin</h1>";
+})->middleware('role:admin');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'studi' , 'as' => 'studi.'], function () {
@@ -32,6 +36,7 @@ Route::group(['prefix' => 'mahasiswa' , 'as' => 'mahasiswa.'], function () {
     Route::get('/' , 'MahasiswaController@index')->name('index');
     Route::get('/create' , 'MahasiswaController@create')->name('create');
     Route::post('/' , 'MahasiswaController@store')->name('store');
+    Route::get('/delete/{id}','MahasiswaController@destroy')->name('delete');
 });
 
 Route::group(['prefix' => 'mata-kuliah' , 'as' => 'mata-kuliah.'], function () {

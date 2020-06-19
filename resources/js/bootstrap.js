@@ -9,6 +9,8 @@ window._ = require('lodash');
 try {
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
+    window.$.DataTable = require('datatables.net');
+    require('datatables.net-bs4');
 
     require('bootstrap');
 } catch (e) {}
